@@ -1,0 +1,112 @@
+﻿<div ng-controller="cadastros.views.tarefa as vm">
+    <div class="md-actions" layout layout-align="end center">
+        <md-subheader>Tarefas</md-subheader>
+        <span flex></span>
+    </div>
+    <md-divider></md-divider>
+    <md-table-container>
+        <div>
+            <table md-table>
+                <thead md-head fix-head md-order="vm.query.order">
+                    <tr md-row>
+                        <th md-column style="box-sizing: content-box"><span>< Opções ></span></th>
+                        <th md-column style="box-sizing: content-box" md-order-by="Descricao"><span>Descrição</span></th>
+                        <th md-column style="box-sizing: content-box" md-order-by="Pessoa"><span>Pessoa</span></th>
+                        <th md-column style="box-sizing: content-box" md-order-by="HoraInicio" md-desc><span>Inicio</span></th>
+                        <th md-column style="box-sizing: content-box" md-order-by="HoraFim"><span>Fim</span></th>
+                        <th md-column style="box-sizing: content-box" md-order-by="Status"><span>Status</span></th>
+                        <th md-column style="box-sizing: content-box" md-order-by="HorasAlocadas"><span>Horas Alocadas</span></th>
+                        <th md-column style="box-sizing: content-box" md-order-by="ValorHora"><span>Valor Hora</span></th>
+                        <th md-column style="box-sizing: content-box" md-order-by="Total"><span>Total</span></th>
+                    </tr>
+                </thead>
+                <tbody md-body>
+                    <tr md-row ng-repeat="item in vm.tarefas | orderBy: vm.query.order">
+                        <td md-cell>
+                            <a href=""><md-icon ng-click="vm.abrirModal($event, item.Id)">edit</md-icon></a>
+                            <a href=""><md-icon ng-click="vm.deletar($event, item.Id)">delete</md-icon></a>
+                        </td>
+                        <td md-cell>{{item.Descricao}}</td>
+                        <td md-cell>{{item.NomePessoa}}</td>
+                        <td md-cell>{{item.HoraInicio  | date: 'dd/MM/yyyy HH:mm:ss'}}</td>
+                        <td md-cell>{{item.HoraFim  | date: 'dd/MM/yyyy HH:mm:ss'}}</td>
+                        <td md-cell>{{item.Status}}</td>
+                        <td md-cell>{{item.HorasAlocadas}}</td>
+                        <td md-cell>{{item.ValorHora}}</td>
+                        <td md-cell>{{item.Total | currency:'R$'}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </md-table-container>
+
+    <md-table-pagination md-limit="vm.query.limit"
+                         md-page="vm.query.page"
+                         md-total="{{vm.qtdRegistros}}"
+                         md-page-select="vm.options.pageSelect"
+                         md-on-paginate="vm.paginacaoGrid"
+                         md-label="{page: 'Página', rowsPerPage: 'Filas por página:', of: 'de'}"></md-table-pagination>
+</div>
+
+
+<script type="text/ng-template" id="cadastro.html">
+    <md-dialog aria-label="Edição de Tarefas">
+        <md-toolbar>
+            <div style="background-color:#0387d1;" class="md-toolbar-tools">
+                <h2>Alterar Status</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="vm.fecharModal()">
+                    <md-icon aria-label="Close dialog">clear</md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content style="max-width:500px;max-height:500px;">
+            <form name="MyForm" novalidate>
+                <md-content layout-padding style="width:440px">
+                    <div flex-sm="400" flex-gt-sm="400" layout-sm="column">
+                        <div layout="row" flex>
+                            <div flex>
+                                <div style="margin-top: 30px; min-height: 75px;" layout="row">
+                                    <div style="margin-top: -22px" flex="100">
+                                        <div style="position: relative;left: auto; right: 0; height:50px;">
+                                            <md-input-container class="md-block" flex-gt-xs>
+                                                <label>Descrição da Tarefa</label>
+                                                <input ng-model="vm.descricao" disabled>
+                                            </md-input-container>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="min-height: 75px;" layout="row">
+                                    <div style="margin-top: -22px" flex="100">
+                                        <div style="position: relative;left: auto; right: 0; height:50px;">
+                                            <md-input-container class="md-block" flex-gt-xs>
+                                                <label>Nome da Pessoa</label>
+                                                <input ng-model="vm.nomePessoa" disabled>
+                                            </md-input-container>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="min-height: 75px;" layout="row">
+                                    <div style="margin-top: -22px" flex="100">
+                                        <div style="position: relative;left: auto; right: 0; height:50px;">
+                                            <md-select ng-model="vm.status">
+                                                <md-option value="1">Pendente</md-option>
+                                                <md-option value="2">Em Progresso</md-option>
+                                                <md-option value="3">Concluída</md-option>
+                                            </md-select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </md-content>
+                <div style="width:100%; background-color: #D0EAF8; justify-content: flex-end" layout="row">
+                    <md-button class="md-raised md-warn" ng-click="vm.fecharModal()">Cancelar</md-button>
+                    <md-button class="md-raised md-primary" button-busy="vm.saving" busy-text="Salvando..." ng-disabled="MyForm.$invalid" ng-click="vm.alterar()" style="margin-right:20px;">Salvar</md-button>
+                </div>
+            </form>
+        </md-dialog-content>
+        <!--</form>-->
+    </md-dialog>
+</script>

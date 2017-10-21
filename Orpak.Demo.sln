@@ -1,0 +1,161 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Presentation", "0 - Presentation", "{26386F86-3831-49FC-A27A-0F401EAB0E36}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Application", "1 - Application", "{D925F44E-E428-43D0-A11C-68611CDFC99E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Domain", "2 - Domain", "{2E80D993-1AA9-4B35-BEDF-883249B8F950}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Infra", "3 - Infra", "{924114A3-E121-416F-AC45-2A22F90661EA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0.1 - Web", "0.1 - Web", "{FA8D9D8B-ACBE-4339-8D6D-6B8DA0374629}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0.2 - Wpf", "0.2 - Wpf", "{38289569-7CB3-4C64-833C-3F25476031EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orpak.Demo.Application", "Orpak.Demo.Application\Orpak.Demo.Application.csproj", "{1D95E030-C6C9-4349-923D-E2B2FA51246C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orpak.Demo.Domain", "Orpak.Demo.Domain\Orpak.Demo.Domain.csproj", "{165A28E6-C75F-426F-9C81-6B204F71D6ED}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.1 - Database", "3.1 - Database", "{E87B1347-5594-4A6A-8752-D7CE6F68185B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.1.2 - IoC", "3.1.2 - IoC", "{B35639E9-BAEF-4F01-974A-E2D019790802}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orpak.Demo.Infra.Repository", "Orpak.Demo.Infra.Repository\Orpak.Demo.Infra.Repository.csproj", "{2832A446-D74A-48F5-9629-CEBC31ECA7CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orpak.Demo.Api", "Orpak.Demo.Api\Orpak.Demo.Api.csproj", "{A1193C1A-9D22-4C19-8878-71C0F6D524B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orpak.Demo.Shared", "Orpak.Demo.Shared\Orpak.Demo.Shared.csproj", "{4787F36C-CC03-4FA5-8C7C-1F482AE82165}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Orpak.Demo.Database", "Orpak.Demo.Database\Orpak.Demo.Database.sqlproj", "{A4849DB5-E19F-40FB-8A97-5965D8DF9A54}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orpak.Demo.Infra.IoC", "Orpak.Demo.Infra.IoC\Orpak.Demo.Infra.IoC.csproj", "{AA8ED8C8-CC74-486A-8C8E-3A0E031DC9AC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Test", "4 - Test", "{BA6FEAF4-EBA8-4C18-879D-49C377333D4D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orpark.Demo.Test", "Orpark.Demo.Test\Orpark.Demo.Test.csproj", "{E125E882-5907-4F32-A16A-AD6B4C49954A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orpak.Demo.Web", "Orpak.Demo.Web\Orpak.Demo.Web.csproj", "{3879A8F8-0F67-4658-9307-D8DBB5B24494}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orpak.Demo.Wpf", "Orpak.Demo.Wpf\Orpak.Demo.Wpf.csproj", "{403D38D8-B5B5-4D74-A3E9-AB448DAF39E0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1D95E030-C6C9-4349-923D-E2B2FA51246C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D95E030-C6C9-4349-923D-E2B2FA51246C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D95E030-C6C9-4349-923D-E2B2FA51246C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D95E030-C6C9-4349-923D-E2B2FA51246C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{165A28E6-C75F-426F-9C81-6B204F71D6ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{165A28E6-C75F-426F-9C81-6B204F71D6ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{165A28E6-C75F-426F-9C81-6B204F71D6ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{165A28E6-C75F-426F-9C81-6B204F71D6ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2832A446-D74A-48F5-9629-CEBC31ECA7CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2832A446-D74A-48F5-9629-CEBC31ECA7CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2832A446-D74A-48F5-9629-CEBC31ECA7CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2832A446-D74A-48F5-9629-CEBC31ECA7CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1193C1A-9D22-4C19-8878-71C0F6D524B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1193C1A-9D22-4C19-8878-71C0F6D524B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1193C1A-9D22-4C19-8878-71C0F6D524B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1193C1A-9D22-4C19-8878-71C0F6D524B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4787F36C-CC03-4FA5-8C7C-1F482AE82165}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4787F36C-CC03-4FA5-8C7C-1F482AE82165}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4787F36C-CC03-4FA5-8C7C-1F482AE82165}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4787F36C-CC03-4FA5-8C7C-1F482AE82165}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4849DB5-E19F-40FB-8A97-5965D8DF9A54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4849DB5-E19F-40FB-8A97-5965D8DF9A54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4849DB5-E19F-40FB-8A97-5965D8DF9A54}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{A4849DB5-E19F-40FB-8A97-5965D8DF9A54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4849DB5-E19F-40FB-8A97-5965D8DF9A54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4849DB5-E19F-40FB-8A97-5965D8DF9A54}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{AA8ED8C8-CC74-486A-8C8E-3A0E031DC9AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA8ED8C8-CC74-486A-8C8E-3A0E031DC9AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA8ED8C8-CC74-486A-8C8E-3A0E031DC9AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA8ED8C8-CC74-486A-8C8E-3A0E031DC9AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E125E882-5907-4F32-A16A-AD6B4C49954A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E125E882-5907-4F32-A16A-AD6B4C49954A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E125E882-5907-4F32-A16A-AD6B4C49954A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E125E882-5907-4F32-A16A-AD6B4C49954A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3879A8F8-0F67-4658-9307-D8DBB5B24494}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3879A8F8-0F67-4658-9307-D8DBB5B24494}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3879A8F8-0F67-4658-9307-D8DBB5B24494}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3879A8F8-0F67-4658-9307-D8DBB5B24494}.Release|Any CPU.Build.0 = Release|Any CPU
+		{403D38D8-B5B5-4D74-A3E9-AB448DAF39E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{403D38D8-B5B5-4D74-A3E9-AB448DAF39E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{403D38D8-B5B5-4D74-A3E9-AB448DAF39E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{403D38D8-B5B5-4D74-A3E9-AB448DAF39E0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FA8D9D8B-ACBE-4339-8D6D-6B8DA0374629} = {26386F86-3831-49FC-A27A-0F401EAB0E36}
+		{38289569-7CB3-4C64-833C-3F25476031EF} = {26386F86-3831-49FC-A27A-0F401EAB0E36}
+		{1D95E030-C6C9-4349-923D-E2B2FA51246C} = {D925F44E-E428-43D0-A11C-68611CDFC99E}
+		{165A28E6-C75F-426F-9C81-6B204F71D6ED} = {2E80D993-1AA9-4B35-BEDF-883249B8F950}
+		{E87B1347-5594-4A6A-8752-D7CE6F68185B} = {924114A3-E121-416F-AC45-2A22F90661EA}
+		{B35639E9-BAEF-4F01-974A-E2D019790802} = {924114A3-E121-416F-AC45-2A22F90661EA}
+		{2832A446-D74A-48F5-9629-CEBC31ECA7CC} = {924114A3-E121-416F-AC45-2A22F90661EA}
+		{A1193C1A-9D22-4C19-8878-71C0F6D524B9} = {D925F44E-E428-43D0-A11C-68611CDFC99E}
+		{4787F36C-CC03-4FA5-8C7C-1F482AE82165} = {2E80D993-1AA9-4B35-BEDF-883249B8F950}
+		{A4849DB5-E19F-40FB-8A97-5965D8DF9A54} = {E87B1347-5594-4A6A-8752-D7CE6F68185B}
+		{AA8ED8C8-CC74-486A-8C8E-3A0E031DC9AC} = {B35639E9-BAEF-4F01-974A-E2D019790802}
+		{E125E882-5907-4F32-A16A-AD6B4C49954A} = {BA6FEAF4-EBA8-4C18-879D-49C377333D4D}
+		{3879A8F8-0F67-4658-9307-D8DBB5B24494} = {FA8D9D8B-ACBE-4339-8D6D-6B8DA0374629}
+		{403D38D8-B5B5-4D74-A3E9-AB448DAF39E0} = {38289569-7CB3-4C64-833C-3F25476031EF}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9066B1CB-C6D3-437C-8C51-F659A5A12426}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 11
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://rcarneironet.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Orpak.Demo.Api\\Orpak.Demo.Api.csproj
+		SccProjectTopLevelParentUniqueName1 = Orpak.Demo.sln
+		SccProjectName1 = Orpak.Demo.Api
+		SccLocalPath1 = Orpak.Demo.Api
+		SccProjectUniqueName2 = Orpak.Demo.Application\\Orpak.Demo.Application.csproj
+		SccProjectTopLevelParentUniqueName2 = Orpak.Demo.sln
+		SccProjectName2 = Orpak.Demo.Application
+		SccLocalPath2 = Orpak.Demo.Application
+		SccProjectUniqueName3 = Orpak.Demo.Database\\Orpak.Demo.Database.sqlproj
+		SccProjectTopLevelParentUniqueName3 = Orpak.Demo.sln
+		SccProjectName3 = Orpak.Demo.Database
+		SccLocalPath3 = Orpak.Demo.Database
+		SccProjectUniqueName4 = Orpak.Demo.Domain\\Orpak.Demo.Domain.csproj
+		SccProjectTopLevelParentUniqueName4 = Orpak.Demo.sln
+		SccProjectName4 = Orpak.Demo.Domain
+		SccLocalPath4 = Orpak.Demo.Domain
+		SccProjectUniqueName5 = Orpak.Demo.Infra.IoC\\Orpak.Demo.Infra.IoC.csproj
+		SccProjectTopLevelParentUniqueName5 = Orpak.Demo.sln
+		SccProjectName5 = Orpak.Demo.Infra.IoC
+		SccLocalPath5 = Orpak.Demo.Infra.IoC
+		SccProjectUniqueName6 = Orpak.Demo.Infra.Repository\\Orpak.Demo.Infra.Repository.csproj
+		SccProjectTopLevelParentUniqueName6 = Orpak.Demo.sln
+		SccProjectName6 = Orpak.Demo.Infra.Repository
+		SccLocalPath6 = Orpak.Demo.Infra.Repository
+		SccProjectUniqueName7 = Orpak.Demo.Shared\\Orpak.Demo.Shared.csproj
+		SccProjectTopLevelParentUniqueName7 = Orpak.Demo.sln
+		SccProjectName7 = Orpak.Demo.Shared
+		SccLocalPath7 = Orpak.Demo.Shared
+		SccProjectUniqueName8 = Orpark.Demo.Test\\Orpark.Demo.Test.csproj
+		SccProjectTopLevelParentUniqueName8 = Orpak.Demo.sln
+		SccProjectName8 = Orpark.Demo.Test
+		SccLocalPath8 = Orpark.Demo.Test
+		SccProjectUniqueName9 = Orpak.Demo.Web\\Orpak.Demo.Web.csproj
+		SccProjectTopLevelParentUniqueName9 = Orpak.Demo.sln
+		SccProjectName9 = Orpak.Demo.Web
+		SccLocalPath9 = Orpak.Demo.Web
+		SccProjectUniqueName10 = Orpak.Demo.Wpf\\Orpak.Demo.Wpf.csproj
+		SccProjectTopLevelParentUniqueName10 = Orpak.Demo.sln
+		SccProjectName10 = Orpak.Demo.Wpf
+		SccLocalPath10 = Orpak.Demo.Wpf
+	EndGlobalSection
+EndGlobal

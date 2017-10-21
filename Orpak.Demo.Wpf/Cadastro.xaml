@@ -1,0 +1,34 @@
+﻿<Window x:Class="Orpak.Demo.Wpf.Cadastro"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Orpak.Demo.Wpf"
+        mc:Ignorable="d"
+        Title="Cadastro" Height="373" Width="436">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="257*"/>
+            <ColumnDefinition Width="33*"/>
+            <ColumnDefinition Width="138*"/>
+        </Grid.ColumnDefinitions>
+        <DatePicker x:Name="dtInicio" HorizontalAlignment="Left" Margin="81,82,0,0" VerticalAlignment="Top" Width="138"/>
+        <DatePicker x:Name="dtFim" HorizontalAlignment="Left" Margin="81,111,0,0" VerticalAlignment="Top" Width="138"/>
+        <Label x:Name="label" Content="Inicio" HorizontalAlignment="Left" Margin="21,82,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1" Content="Fim" HorizontalAlignment="Left" Margin="21,108,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txthoraInicio" HorizontalAlignment="Left" Height="23" Margin="8,83,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.Column="2"/>
+        <TextBox x:Name="txthoraFim" HorizontalAlignment="Left" Height="23" Margin="8,111,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.Column="2"/>
+        <Label x:Name="label2" Content="Hora Inicio" HorizontalAlignment="Left" Margin="231,82,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3"/>
+        <Label x:Name="label3" Content="Hora Final" HorizontalAlignment="Left" Margin="234,108,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.079,0.154" Grid.ColumnSpan="3"/>
+        <ComboBox x:Name="cboStatus" HorizontalAlignment="Left" Margin="81,157,0,0" VerticalAlignment="Top" Width="167"/>
+        <TextBox x:Name="txthorasAlocadas" HorizontalAlignment="Left" Height="23" Margin="81,193,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="167"/>
+        <ComboBox x:Name="cboPessoa" HorizontalAlignment="Left" Margin="81,230,0,0" VerticalAlignment="Top" Width="337" Grid.ColumnSpan="3"/>
+        <Label x:Name="label4" Content="Status" HorizontalAlignment="Left" Margin="21,157,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label5" Content="Hrs Alocadas" HorizontalAlignment="Left" Margin="2,190,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label6" Content="Pessoa" HorizontalAlignment="Left" Margin="21,230,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="button" Content="Salvar" HorizontalAlignment="Left" Margin="53,312,0,0" VerticalAlignment="Top" Width="75" Grid.Column="2" Click="button_Click"/>
+        <Button x:Name="button1" Content="Cancelar" Grid.Column="1" HorizontalAlignment="Left" Margin="6,312,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtDescricao" HorizontalAlignment="Left" Height="23" Margin="81,40,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="337" Grid.ColumnSpan="3"/>
+        <Label x:Name="label7" Content="Descrção" HorizontalAlignment="Left" Margin="25,40,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Window>

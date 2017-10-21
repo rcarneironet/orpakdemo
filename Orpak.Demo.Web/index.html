@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.5/angular-material.css" rel="stylesheet">
+    <link href="assets/plugins/md-data-table/css/md-data-table.css" rel="stylesheet" />
+
+    <style>
+        .gray {
+            background: #364150;
+        }
+
+        md-input-container > label {
+            font-size: 14px !important;
+            line-height: 24px !important;
+        }
+
+        .Fernando {
+            color: #000 !important;
+        }
+
+        .Fernando:after {
+            background: rgb(221,44,0) !important;
+        }
+
+        .md-datepicker-button {
+            position: relative !important;
+            margin-left: 33px !important;
+        }
+
+        .md-datepicker-input-container {
+            margin-left: -5px;
+        }
+
+        .md-calendar-day-header {
+            background: #0387d1 !important;
+            color: #fff;
+        }
+
+        body + object {
+            display: none;
+        }
+    </style>
+</head>
+<body ng-app="orpak" ng-controller="comum.views.inicio as vm" cg-busy="{promise:vm.loading,message:vm.message,backdrop:vm.backdrop,delay:vm.delay,minDuration:vm.minDuration}">
+    <div layout="row" layout-fill ng-cloak>
+        <md-sidenav style="background: #364150; width: 300px" class="md-sidenav-left md-whiteframe-z2" role="sidenav" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+            <md-toolbar style="background: #0387d1;" class="md-tall md-hue-2" layout-align="end end">
+                <div class="md-toolbar-tools" layout layout-padding>
+                    <md-icon style="position: relative; margin-right: 10px; top: -5px">face</md-icon>
+                    <div layout="column" class="md-toolbar-tools-bottom inset">
+                        <span class="md-body-2">Bem-vindo,</span>
+                        <span class="md-caption">Usuário</span>
+                    </div>
+                    <span flex></span>
+                </div>
+            </md-toolbar>
+            <md-content style="background: #364150" role="navigation">
+                <md-list>
+                    <md-list-item ng-repeat="item in vm.menuPrincipal" ng-click="vm.abrir(item.url)">
+                        <md-icon style="color:#b4bcc8;">{{item.icon}}</md-icon>
+                        <p style="color:#b4bcc8;min-width: 150px;" class="md-body-2">{{item.nome}}</p>
+                        <span flex></span>
+                        <md-icon style="color:#b4bcc8;">chevron_right</md-icon>
+                    </md-list-item>
+                </md-list>
+            </md-content>
+        </md-sidenav>
+        <section layout="column" role="main" flex>
+            <div data-ng-include="'../app/tpl/views/header.html'" data-ng-controller="comum.views.header as vm"></div>
+            <section id="content" role="content" layout="column" layout-padding md-scroll-y>
+                <md-content class="md-whiteframe-z2" ng-cloak>
+                    <md-list ui-view>
+                    </md-list>
+                </md-content>
+            </section>
+            <md-button class="md-fab md-fab-bottom-right" aria-label="Add" ng-click="vm.abrirModal($event)">
+                <md-icon>add</md-icon>
+            </md-button>
+        </section>
+    </div>
+
+
+    <script src="js/vendor.bundle.js"></script>
+    <script src="js/app.bundle.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,87 @@
+﻿<div ng-controller="cadastros.views.pessoa as vm">
+    <div class="md-actions" layout layout-align="end center">
+        <md-subheader>Pessoas</md-subheader>
+        <span flex></span>
+    </div>
+    <md-divider></md-divider>
+    <md-table-container>
+        <div>
+            <table md-table>
+                <thead md-head fix-head md-order="vm.query.order">
+                    <tr md-row>
+                        <th md-column style="box-sizing: content-box"><span>< Opções ></span></th>
+                        <th md-column style="box-sizing: content-box" md-order-by="DataNascimento"><span>Data Nascimento</span></th>
+                        <th md-column style="box-sizing: content-box" md-order-by="Nome" md-desc><span>Nome</span></th>
+                        <th md-column style="box-sizing: content-box" md-order-by="Celular"><span>Celular</span></th>
+                        <th md-column style="box-sizing: content-box" md-order-by="Email"><span>Email</span></th>
+                        <th md-column style="box-sizing: content-box" md-order-by="Salario"><span>Salario</span></th>
+                        <th md-column style="box-sizing: content-box" md-order-by="Horas"><span>Horas</span></th>
+                    </tr>
+                </thead>
+                <tbody md-body>
+                    <tr md-row ng-repeat="item in vm.pessoas | orderBy: vm.query.order">
+                        <td md-cell>
+                            <a href=""><md-icon ng-click="vm.abrirModal($event, item.Id)">edit</md-icon></a>
+                            <a href=""><md-icon ng-click="vm.deletar(item.Id)">delete</md-icon></a>
+                        </td>
+                        <td md-cell>{{item.DataNascimento | date: 'dd/MM/yyyy'}}</td>
+                        <td md-cell>{{item.Nome}}</td>
+                        <td md-cell>{{item.Celular}}</td>
+                        <td md-cell>{{item.Email}}</td>
+                        <td md-cell>{{item.Salario}}</td>
+                        <td md-cell>{{item.Horas}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </md-table-container>
+
+    <md-table-pagination md-limit="vm.query.limit"
+                         md-page="vm.query.page"
+                         md-total="{{vm.qtdRegistros}}"
+                         md-page-select="vm.options.pageSelect"
+                         md-on-paginate="vm.paginacaoGrid"
+                         md-label="{page: 'Página', rowsPerPage: 'Filas por página:', of: 'de'}"></md-table-pagination>
+</div>
+
+
+<script type="text/ng-template" id="cadastro.html">
+    <md-dialog aria-label="Cadastro de Pessoas">
+        <md-toolbar>
+            <div style="background-color:#0387d1;" class="md-toolbar-tools">
+                <h2>Cadastro de Pessoas</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="vm.fecharModal()">
+                    <md-icon aria-label="Close dialog">clear</md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content style="max-width:500px;max-height:500px;">
+            <form name="MyForm" novalidate>
+                <md-content layout-padding style="width:440px">
+                    <div flex-sm="400" flex-gt-sm="400" layout-sm="column">
+                        <div layout="row" flex>
+                            <div flex>
+                                <div style="margin-top: 30px; min-height: 75px;" layout="row">
+                                    <div style="margin-top: -22px" flex="100">
+                                        <div style="position: relative;left: auto; right: 0; height:50px;">
+                                            <md-input-container class="md-block" style="margin-top:0px">
+                                                <label>Nome Pessoa</label>
+                                                <input type="text" ng-model="vm.nome" md-minlength="1" md-maxlength="50" required />
+                                            </md-input-container>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </md-content>
+                <div style="width:100%; background-color: #D0EAF8; justify-content: flex-end" layout="row">
+                    <md-button class="md-raised md-warn" ng-click="vm.fecharModal()">Cancelar</md-button>
+                    <md-button class="md-raised md-primary" button-busy="vm.saving" busy-text="Salvando..." ng-disabled="MyForm.$invalid" ng-click="vm.salvar()" style="margin-right:20px;">Salvar</md-button>
+                </div>
+            </form>
+        </md-dialog-content>
+        <!--</form>-->
+    </md-dialog>
+</script>
