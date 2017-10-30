@@ -1,0 +1,18 @@
+# Compiled source #
+###################
+*.dll
+*.exe
+*.o
+*.so
+*.user
+
+# OS generated files #
+######################
+ehthumbs.db
+Thumbs.db
+
+# Project #
+######################
+bin/
+obj/
+packages/
