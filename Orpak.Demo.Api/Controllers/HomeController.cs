@@ -10,9 +10,7 @@ namespace Orpak.Demo.Api.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Title = "Home Page";
-
-            return View();
+            return RedirectToAction("ui/index", "Swagger");
         }
     }
 }

@@ -2,31 +2,20 @@
 using Orpak.Demo.Wpf.Entidade;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Orpak.Demo.Wpf
 {
     /// <summary>
     /// Interaction logic for Cadastro.xaml
     /// </summary>
-    public partial class Cadastro : Window
+    public partial class Cadastro
     {
         public Cadastro()
         {
             InitializeComponent();
-            this.CarregarComboPessoa();
-            this.CarregarComboStatus();
+            CarregarComboPessoa();
+            CarregarComboStatus();
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -38,41 +27,56 @@ namespace Orpak.Demo.Wpf
         {
             ClientApi api = new ClientApi();
 
-            var obj = new TarefaInput();
-            obj.Descricao = this.txtDescricao.Text;
-            obj.Status = int.Parse(this.cboStatus.SelectedValue.ToString());
-            obj.PessoaId = int.Parse(this.cboPessoa.SelectedValue.ToString());
-            obj.HoraInicio = DateTime.Parse(dtInicio.Text + " " + txthoraInicio.Text);
-            obj.HoraFim = DateTime.Parse(dtFim.Text + " " + txthoraFim.Text);
-            obj.HorasAlocadas = decimal.Parse(txthorasAlocadas.Text);
+            var obj = new TarefaInput
+            {
+                Descricao = !String.IsNullOrEmpty(txtDescricao.Text) ? txtDescricao.Text : string.Empty,
+                Status = cboStatus.SelectedValue != null ? int.Parse(cboStatus.SelectedValue.ToString()) : -1,
+                PessoaId = cboPessoa.SelectedValue != null ? int.Parse(cboPessoa.SelectedValue.ToString()) : -1,
+                HoraInicio = !String.IsNullOrEmpty(dtInicio.Text) && !String.IsNullOrEmpty(txthoraInicio.Text) &&
+                             txthoraInicio.Text != "__:__"
+                    ? DateTime.Parse(dtInicio.Text + " " + txthoraInicio.Text)
+                    : DateTime.MinValue,
+                HoraFim = !String.IsNullOrEmpty(dtFim.Text) && !String.IsNullOrEmpty(dtFim.Text) &&
+                          txthoraFim.Text != "__:__"
+                    ? DateTime.Parse(dtFim.Text + " " + txthoraFim.Text)
+                    : DateTime.MinValue,
+                HorasAlocadas = !String.IsNullOrEmpty(txthorasAlocadas.Text) ? decimal.Parse(txthorasAlocadas.Text) : -1
+            };
 
-            api.CriarTarefa(obj);
-            this.Close();
+            bool canSave = (!String.IsNullOrEmpty(obj.Descricao) && obj.Status > -1 && obj.PessoaId > -1 && obj.HoraInicio != DateTime.MinValue && obj.HoraFim != DateTime.MinValue && obj.HorasAlocadas > -1);
+            if (canSave)
+            {
+                api.CriarTarefa(obj);
+                MessageBox.Show("Tarefa criada com sucesso!", "Informação do Sistema");
+                Close();
+            }
+            else
+                MessageBox.Show("Por favor, preencha todos os campos.", "Informação do Sistema");
         }
 
         private void CarregarComboPessoa()
         {
-            ClientApi api = new ClientApi();
+            var api = new ClientApi();
 
             var resultado = api.ObterPessoas();
 
-            this.cboPessoa.SelectedValuePath = "Key";
-            this.cboPessoa.DisplayMemberPath = "Value";
+            cboPessoa.SelectedValuePath = "Key";
+            cboPessoa.DisplayMemberPath = "Value";
 
             foreach (var item in resultado)
             {
-                this.cboPessoa.Items.Add(new KeyValuePair<int, string>(item.Id, item.Nome));
+                cboPessoa.Items.Add(new KeyValuePair<int, string>(item.Id, item.Nome));
             }
 
         }
 
         private void CarregarComboStatus()
         {
-            this.cboStatus.SelectedValuePath = "Key";
-            this.cboStatus.DisplayMemberPath = "Value";
-            this.cboStatus.Items.Add(new KeyValuePair<int, string>(1, "Pendente"));
-            this.cboStatus.Items.Add(new KeyValuePair<int, string>(2, "Em progresso"));
-            this.cboStatus.Items.Add(new KeyValuePair<int, string>(3, "Concluída"));
+            cboStatus.SelectedValuePath = "Key";
+            cboStatus.DisplayMemberPath = "Value";
+            cboStatus.Items.Add(new KeyValuePair<int, string>(1, "Pendente"));
+            cboStatus.Items.Add(new KeyValuePair<int, string>(2, "Em progresso"));
+            cboStatus.Items.Add(new KeyValuePair<int, string>(3, "Concluída"));
         }
     }
 }

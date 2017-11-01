@@ -1,6 +1,7 @@
 ﻿var constants = [];
 
 var serviceBase = 'http://orpakdemo-api.azurewebsites.net/api/';
+//var serviceBase = 'http://localhost:53549/api/';
 
 
 constants.push({

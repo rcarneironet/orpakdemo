@@ -10,7 +10,7 @@ using System.Web.Http;
 
 namespace Orpak.Demo.Api.Controllers
 {
-    [RoutePrefix("api/Tarefa")]
+    [RoutePrefix("api")]
     public class TarefaController : ApiController
     {
         private ITarefaAppService _appService { get; }
@@ -20,6 +20,7 @@ namespace Orpak.Demo.Api.Controllers
             _appService = appService;
         }
 
+        [Route("Tarefa")]
         [HttpPost]
         public async Task<IHttpActionResult> Post([FromBody] TarefaInput tarefa)
         {
@@ -27,7 +28,7 @@ namespace Orpak.Demo.Api.Controllers
             return Created($"{Request?.RequestUri}/{obj.Id}", obj);
         }
 
-        [Route("{id}")]
+        [Route("Tarefa/{id}")]
         [HttpPut]
         public async Task<IHttpActionResult> Put(int id, [FromBody] TarefaInput tarefa)
         {
@@ -35,7 +36,7 @@ namespace Orpak.Demo.Api.Controllers
             return Content(HttpStatusCode.Accepted, obj);
         }
 
-        [Route("{id}/Status/{idStatus}")]
+        [Route("Tarefa/{id}/Status/{idStatus}")]
         [HttpPut]
         public async Task<IHttpActionResult> Put(int id, int idStatus)
         {
@@ -43,14 +44,14 @@ namespace Orpak.Demo.Api.Controllers
             return Content(HttpStatusCode.Accepted, obj);
         }
 
-        [Route("{id}")]
+        [Route("Tarefa/{id}")]
         [HttpGet]
         public IHttpActionResult Get(int id)
         {
             return Ok(_appService.Obter(id));
         }
 
-        [Route("{id}")]
+        [Route("Tarefa/{id}")]
         [HttpDelete]
         public async Task<IHttpActionResult> Delete(int id)
         {
@@ -58,6 +59,7 @@ namespace Orpak.Demo.Api.Controllers
             return Ok();
         }
 
+        [Route("Tarefa")]
         [HttpGet]
         public async Task<IHttpActionResult> Get(int paginaAtual, int totalPagina)
         {

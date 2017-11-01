@@ -13,7 +13,7 @@ namespace Orpak.Demo.Infra.Repository
     {
         public async Task<ResultPagination<TarefaDto>> ObterListaTarefas(Pagination paginacao)
         {
-            var count = DbSet.Where(a => a.IsDeleted == false).Count();
+            var count = DbSet.Where(a => !a.IsDeleted).Count();
 
             var query = from a in DbSet.AsNoTracking()
                           join b in Db.Pessoas on a.PessoaId equals b.Id
@@ -53,6 +53,7 @@ namespace Orpak.Demo.Infra.Repository
                         select new TarefaDto
                         {
                             Id = a.Id,
+                            PessoaId = b.Id,
                             Descricao = a.Descricao,
                             HoraFim = a.HoraFim,
                             HoraInicio = a.HoraInicio,

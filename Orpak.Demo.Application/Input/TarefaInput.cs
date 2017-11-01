@@ -9,6 +9,7 @@ namespace Orpak.Demo.Application.Input
     public class TarefaInput
     {
         public int PessoaId { get; set; }
+        public string NomePessoa { get; set; }
         public string Descricao { get; set; }
         public DateTime HoraInicio { get; set; }
         public DateTime HoraFim { get; set; }

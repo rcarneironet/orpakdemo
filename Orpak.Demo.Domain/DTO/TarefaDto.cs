@@ -9,6 +9,7 @@ namespace Orpak.Demo.Domain.DTO
     public class TarefaDto
     {
         public int Id { get; set; }
+        public int PessoaId { get; set; }
         public string NomePessoa { get; set; }
         public string Descricao { get; set; }
         public DateTime HoraInicio { get; set; }

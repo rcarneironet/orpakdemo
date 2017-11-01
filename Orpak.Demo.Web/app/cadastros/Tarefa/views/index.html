@@ -60,9 +60,9 @@
                 </md-button>
             </div>
         </md-toolbar>
-        <md-dialog-content style="max-width:500px;max-height:500px;">
+        <md-dialog-content style="max-width:500px;">
             <form name="MyForm" novalidate>
-                <md-content layout-padding style="width:440px">
+                <md-content layout-padding style="width:440px;">
                     <div flex-sm="400" flex-gt-sm="400" layout-sm="column">
                         <div layout="row" flex>
                             <div flex>
@@ -71,8 +71,28 @@
                                         <div style="position: relative;left: auto; right: 0; height:50px;">
                                             <md-input-container class="md-block" flex-gt-xs>
                                                 <label>Descrição da Tarefa</label>
-                                                <input ng-model="vm.descricao" disabled>
+                                                <input ng-model="vm.tarefa.descricao">
                                             </md-input-container>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="min-height: 75px;" layout="row">
+                                    <div style="margin-top: -22px" flex="100">
+                                        <div style="position: relative;left: auto; right: 0; height:50px;">
+                                            <md-select ng-model="vm.tarefa.pessoaId" required>
+                                                <md-option ng-repeat="item in vm.pessoas" value="{{item.Id}}">{{item.Nome}}</md-option>
+                                            </md-select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="min-height: 75px;" layout="row">
+                                    <div style="margin-top: -22px" flex="100">
+                                        <div style="position: relative;left: auto; right: 0; height:50px;">
+                                            <md-select ng-model="vm.tarefa.status" required>
+                                                <md-option value="1">Pendente</md-option>
+                                                <md-option value="2">Em Progresso</md-option>
+                                                <md-option value="3">Concluída</md-option>
+                                            </md-select>
                                         </div>
                                     </div>
                                 </div>
@@ -80,20 +100,43 @@
                                     <div style="margin-top: -22px" flex="100">
                                         <div style="position: relative;left: auto; right: 0; height:50px;">
                                             <md-input-container class="md-block" flex-gt-xs>
-                                                <label>Nome da Pessoa</label>
-                                                <input ng-model="vm.nomePessoa" disabled>
+                                                <label>Horas Alocadas</label>
+                                                <input name="horasAlocadas" ng-model="vm.tarefa.horasAlocadas" required type="number" step="0.01" maxlength="6">
+                                                <div ng-messages="MyForm.horasAlocadas.$error" role="alert" multiple>
+                                                    <div ng-message="required" class="my-message">Horas alocadas é obrigatório.</div>
+                                                    <div ng-message="pattern" class="my-message">Formato de horas errado</div>
+                                                </div>
                                             </md-input-container>
                                         </div>
                                     </div>
                                 </div>
                                 <div style="min-height: 75px;" layout="row">
                                     <div style="margin-top: -22px" flex="100">
+                                        <div style="position: relative;left: auto; right: 0; height:50px;margin-top:18px">
+                                            <md-datepicker style="margin-left: -86px;" ng-model="vm.dataInicio" md-placeholder="Data inicio"></md-datepicker>
+                                        </div>
+                                    </div>
+                                    <div style="margin-top: -22px" flex="100">
                                         <div style="position: relative;left: auto; right: 0; height:50px;">
-                                            <md-select ng-model="vm.status">
-                                                <md-option value="1">Pendente</md-option>
-                                                <md-option value="2">Em Progresso</md-option>
-                                                <md-option value="3">Concluída</md-option>
-                                            </md-select>
+                                            <md-input-container class="md-block" flex-gt-xs>
+                                                <label>Inicio</label>
+                                                <input ng-model="vm.tarefa.horaInicio" required ng-pattern="/^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/" md-maxlength="5">
+                                            </md-input-container>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="min-height: 75px;" layout="row">
+                                    <div style="margin-top: -22px" flex="100">
+                                        <div style="position: relative;left: auto; right: 0; height:50px;margin-top:18px">
+                                            <md-datepicker style="margin-left: -86px;" ng-model="vm.dataFim" md-placeholder="Data fim"></md-datepicker>
+                                        </div>
+                                    </div>
+                                    <div style="margin-top: -22px" flex="100">
+                                        <div style="position: relative;left: auto; right: 0; height:50px;">
+                                            <md-input-container class="md-block" flex-gt-xs>
+                                                <label>Fim</label>
+                                                <input ng-model="vm.tarefa.horaFim" required ng-pattern="/^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/" md-maxlength="5">
+                                            </md-input-container>
                                         </div>
                                     </div>
                                 </div>
@@ -103,7 +146,7 @@
                 </md-content>
                 <div style="width:100%; background-color: #D0EAF8; justify-content: flex-end" layout="row">
                     <md-button class="md-raised md-warn" ng-click="vm.fecharModal()">Cancelar</md-button>
-                    <md-button class="md-raised md-primary" button-busy="vm.saving" busy-text="Salvando..." ng-disabled="MyForm.$invalid" ng-click="vm.alterar()" style="margin-right:20px;">Salvar</md-button>
+                    <md-button class="md-raised md-primary" button-busy="vm.saving" busy-text="Salvando..." ng-disabled="MyForm.$invalid" ng-click="vm.salvar()" style="margin-right:20px;">Salvar</md-button>
                 </div>
             </form>
         </md-dialog-content>

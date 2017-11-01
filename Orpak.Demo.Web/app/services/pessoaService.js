@@ -10,6 +10,7 @@
             inserir: inserir,
             obter: obter,
             alterar: alterar,
+            obterTodos : obterTodos
         };
 
         function listar(paginaAtual, totalPorPagina) {
@@ -27,12 +28,16 @@
             return $http.post(serviceBase, pessoa);
         }
 
-        function alterar(id, insumo) {
+        function alterar(id, pessoa) {
             return $http.put(serviceBase + id, pessoa);
         }
 
         function obter(id) {
             return $http.get(serviceBase + id);
+        }
+
+        function obterTodos() {
+            return $http.get(serviceBase + "All");
         }
     }]);
 })();

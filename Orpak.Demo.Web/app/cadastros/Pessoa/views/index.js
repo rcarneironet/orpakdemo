@@ -1,4 +1,5 @@
-﻿(function () {
+﻿"use strict";
+(function () {
     angular.module('orpak').controller('cadastros.views.pessoa',
         function ($scope, $mdSidenav, $mdDialog, $mdMedia, $rootScope, pessoaService) {
             var vm = this;

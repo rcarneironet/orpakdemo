@@ -60,18 +60,11 @@ namespace Orpak.Demo.Application.Services
 
         private async Task<Pessoa> ObterPessoa(int id)
         {
-            try
-            {
-                var obj = await _appPessoaRepository.GetById(id);
-                if (obj == null)
-                    throw new NotFoundException("Pessoa não encontrada", id);
+            var obj = await _appPessoaRepository.GetById(id);
+            if (obj == null)
+                throw new NotFoundException("Pessoa não encontrada", id);
 
-                return obj;
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
+            return obj;
         }
     }
 }

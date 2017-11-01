@@ -47,6 +47,7 @@ namespace Orpak.Demo.Application.Services
             var pessoa = await ObterPessoa(input.PessoaId);
             tarefa.UpdateInfo(input.Descricao, input.HoraInicio, input.HoraFim, input.Status, input.HorasAlocadas, pessoa.Id);
 
+            tarefa.CalcularHoras(pessoa);
             await _appTarefaRepository.Update(tarefa);
 
             return tarefa;
@@ -65,34 +66,20 @@ namespace Orpak.Demo.Application.Services
 
         private async Task<Tarefa> ObterTarefa(int id)
         {
-            try
-            {
-                var obj = await _appTarefaRepository.GetById(id);
-                if (obj == null)
-                    throw new NotFoundException("Tarefa não encontrada", id);
+            var obj = await _appTarefaRepository.GetById(id);
+            if (obj == null)
+                throw new NotFoundException("Tarefa não encontrada", id);
 
-                return obj;
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
+            return obj;
         }
 
         private async Task<Pessoa> ObterPessoa(int id)
         {
-            try
-            {
-                var obj = await _appPessoaRepository.GetById(id);
-                if (obj == null)
-                    throw new NotFoundException("Pessoa não encontrada", id);
+            var obj = await _appPessoaRepository.GetById(id);
+            if (obj == null)
+                throw new NotFoundException("Pessoa não encontrada", id);
 
-                return obj;
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
+            return obj;
         }
 
         public async Task<Tarefa> AtualizarStatus(int id, int idStatus)

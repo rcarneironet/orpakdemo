@@ -10,136 +10,136 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="app/app.constants.js">
-      <publishTime>10/21/2017 11:26:45</publishTime>
+      <publishTime>11/01/2017 09:56:36</publishTime>
     </File>
     <File Include="app/app.js">
-      <publishTime>10/21/2017 10:49:02</publishTime>
+      <publishTime>10/31/2017 13:53:33</publishTime>
     </File>
     <File Include="app/app.layout.js">
-      <publishTime>10/21/2017 10:49:02</publishTime>
+      <publishTime>10/31/2017 13:53:33</publishTime>
     </File>
     <File Include="app/app.rotas.js">
-      <publishTime>10/21/2017 10:49:02</publishTime>
+      <publishTime>10/31/2017 13:53:33</publishTime>
     </File>
     <File Include="app/cadastros/Pessoa/views/index.html">
-      <publishTime>10/21/2017 10:49:02</publishTime>
+      <publishTime>10/31/2017 13:53:33</publishTime>
     </File>
     <File Include="app/cadastros/Pessoa/views/index.js">
-      <publishTime>10/21/2017 10:49:02</publishTime>
+      <publishTime>10/31/2017 13:53:33</publishTime>
     </File>
     <File Include="app/cadastros/Pessoa/views/modal.js">
-      <publishTime>10/21/2017 10:49:02</publishTime>
+      <publishTime>10/31/2017 13:53:33</publishTime>
     </File>
     <File Include="app/cadastros/Tarefa/views/index.html">
-      <publishTime>10/21/2017 10:49:02</publishTime>
+      <publishTime>10/31/2017 13:53:33</publishTime>
     </File>
     <File Include="app/cadastros/Tarefa/views/index.js">
-      <publishTime>10/21/2017 10:49:02</publishTime>
+      <publishTime>10/31/2017 13:53:33</publishTime>
     </File>
     <File Include="app/cadastros/Tarefa/views/modal.js">
-      <publishTime>10/21/2017 10:49:02</publishTime>
+      <publishTime>10/31/2017 13:53:33</publishTime>
     </File>
     <File Include="app/comum/views/home.html">
-      <publishTime>10/21/2017 10:49:02</publishTime>
+      <publishTime>10/31/2017 13:53:34</publishTime>
     </File>
     <File Include="app/comum/views/home.js">
-      <publishTime>10/21/2017 10:49:02</publishTime>
+      <publishTime>10/31/2017 13:53:34</publishTime>
     </File>
     <File Include="app/services/pessoaService.js">
-      <publishTime>10/21/2017 10:49:02</publishTime>
+      <publishTime>10/31/2017 13:53:34</publishTime>
     </File>
     <File Include="app/services/tarefaService.js">
-      <publishTime>10/21/2017 10:49:02</publishTime>
+      <publishTime>10/31/2017 13:53:34</publishTime>
     </File>
     <File Include="app/tpl/views/header.html">
-      <publishTime>10/21/2017 10:49:02</publishTime>
+      <publishTime>10/31/2017 13:53:34</publishTime>
     </File>
     <File Include="assets/plugins/jquery/jquery.min.js">
-      <publishTime>10/21/2017 10:49:03</publishTime>
+      <publishTime>10/31/2017 13:53:34</publishTime>
     </File>
     <File Include="assets/plugins/md-data-table/css/md-data-table.css">
-      <publishTime>10/21/2017 10:49:02</publishTime>
+      <publishTime>10/31/2017 13:53:34</publishTime>
     </File>
     <File Include="assets/plugins/md-data-table/js/fixed-table-header.js">
-      <publishTime>10/21/2017 10:49:02</publishTime>
+      <publishTime>10/31/2017 13:53:34</publishTime>
     </File>
     <File Include="assets/plugins/md-data-table/js/md-data-table.js">
-      <publishTime>10/21/2017 10:49:02</publishTime>
+      <publishTime>10/31/2017 13:53:34</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
-      <publishTime>10/21/2017 10:49:23</publishTime>
+      <publishTime>10/31/2017 13:53:55</publishTime>
     </File>
     <File Include="bin/Orpak.Demo.Web.dll">
-      <publishTime>10/21/2017 11:38:30</publishTime>
+      <publishTime>11/01/2017 09:58:41</publishTime>
     </File>
     <File Include="bin/Orpak.Demo.Web.pdb">
-      <publishTime>10/21/2017 11:38:30</publishTime>
+      <publishTime>11/01/2017 09:58:41</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe">
-      <publishTime>10/21/2017 10:49:23</publishTime>
+      <publishTime>10/31/2017 13:53:56</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
-      <publishTime>10/21/2017 10:49:24</publishTime>
+      <publishTime>10/31/2017 13:53:56</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
-      <publishTime>10/21/2017 10:49:42</publishTime>
+      <publishTime>10/31/2017 13:54:15</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
-      <publishTime>10/21/2017 10:49:32</publishTime>
+      <publishTime>10/31/2017 13:54:05</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
-      <publishTime>10/21/2017 10:49:45</publishTime>
+      <publishTime>10/31/2017 13:54:18</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
-      <publishTime>10/21/2017 10:49:24</publishTime>
+      <publishTime>10/31/2017 13:53:57</publishTime>
     </File>
     <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
-      <publishTime>10/21/2017 10:49:24</publishTime>
+      <publishTime>10/31/2017 13:53:57</publishTime>
     </File>
     <File Include="bin/roslyn/System.Collections.Immutable.dll">
-      <publishTime>10/21/2017 10:49:25</publishTime>
+      <publishTime>10/31/2017 13:53:58</publishTime>
     </File>
     <File Include="bin/roslyn/System.Reflection.Metadata.dll">
-      <publishTime>10/21/2017 10:49:26</publishTime>
+      <publishTime>10/31/2017 13:54:00</publishTime>
     </File>
     <File Include="bin/roslyn/vbc.exe">
-      <publishTime>10/21/2017 10:49:26</publishTime>
+      <publishTime>10/31/2017 13:53:59</publishTime>
     </File>
     <File Include="bin/roslyn/VBCSCompiler.exe">
-      <publishTime>10/21/2017 10:49:26</publishTime>
+      <publishTime>10/31/2017 13:53:59</publishTime>
     </File>
     <File Include="bin/roslyn/VBCSCompiler.exe.config">
-      <publishTime>10/21/2017 10:49:26</publishTime>
+      <publishTime>10/31/2017 13:53:59</publishTime>
     </File>
     <File Include="gulpfile.js">
-      <publishTime>10/21/2017 10:49:01</publishTime>
+      <publishTime>10/31/2017 13:53:33</publishTime>
     </File>
     <File Include="index.html">
-      <publishTime>10/21/2017 11:36:07</publishTime>
+      <publishTime>10/31/2017 13:53:33</publishTime>
     </File>
     <File Include="js/app.bundle.js">
-      <publishTime>10/21/2017 11:37:37</publishTime>
+      <publishTime>11/01/2017 09:56:50</publishTime>
     </File>
     <File Include="js/app.bundle.js.map">
-      <publishTime>10/21/2017 11:37:37</publishTime>
+      <publishTime>11/01/2017 09:56:50</publishTime>
     </File>
     <File Include="js/vendor.bundle.js">
-      <publishTime>10/21/2017 11:37:37</publishTime>
+      <publishTime>11/01/2017 09:56:50</publishTime>
     </File>
     <File Include="js/vendor.bundle.js.map">
-      <publishTime>10/21/2017 11:37:37</publishTime>
+      <publishTime>11/01/2017 09:56:50</publishTime>
     </File>
     <File Include="package.json">
-      <publishTime>10/21/2017 10:49:01</publishTime>
+      <publishTime>10/31/2017 13:53:33</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>10/21/2017 10:49:01</publishTime>
+      <publishTime>10/31/2017 13:53:33</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>10/21/2017 11:38:30</publishTime>
+      <publishTime>11/01/2017 09:58:41</publishTime>
     </File>
     <File Include="webpack.config.js">
-      <publishTime>10/21/2017 10:49:02</publishTime>
+      <publishTime>10/31/2017 13:53:33</publishTime>
     </File>
   </ItemGroup>
 </Project>

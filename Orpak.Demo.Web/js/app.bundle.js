@@ -81,6 +81,7 @@ function rotas($stateProvider, $urlRouterProvider) {
 ﻿var constants = [];
 
 var serviceBase = 'http://orpakdemo-api.azurewebsites.net/api/';
+//var serviceBase = 'http://localhost:53549/api/';
 
 
 constants.push({
@@ -111,6 +112,12 @@ var configuration = {
             cssFilesInsertBefore: 'ng_load_plugins_before' 
         });
     }]);
+
+    appModule.config(function($mdDateLocaleProvider) {
+        $mdDateLocaleProvider.formatDate = function(date) {
+            return moment(date).format('DD/MM/YYYY');
+        };
+    });
 
     appModule.controller('comum.views.inicio', ['$scope', '$rootScope', '$state', '$mdMedia', '$mdDialog', '$location', '$mdSidenav',
             function ($scope, $rootScope, $state, $mdMedia, $mdDialog, $location, $mdSidenav) {
@@ -154,12 +161,12 @@ var configuration = {
                     else if ($location.path() == "/tarefas") {
                         $mdDialog.show({
                             templateUrl: 'cadastro.html',
-                            controller: 'cadastros.views.modalAmbiente as vm',
+                            controller: 'cadastros.views.modalTarefa as vm',
                             parent: angular.element(document.body),
                             targetEvent: ev,
                             fullscreen: useFullScreen,
                             locals: {
-                                ambienteId: 0
+                                tarefaId: 0
                             }
                         }).then(function () {
                             $rootScope.$emit("CallParentMethod", {});
@@ -1891,6 +1898,7 @@ webpackContext.id = 11;
             inserir: inserir,
             obter: obter,
             alterar: alterar,
+            obterTodos : obterTodos
         };
 
         function listar(paginaAtual, totalPorPagina) {
@@ -1908,12 +1916,16 @@ webpackContext.id = 11;
             return $http.post(serviceBase, pessoa);
         }
 
-        function alterar(id, insumo) {
+        function alterar(id, pessoa) {
             return $http.put(serviceBase + id, pessoa);
         }
 
         function obter(id) {
             return $http.get(serviceBase + id);
+        }
+
+        function obterTodos() {
+            return $http.get(serviceBase + "All");
         }
     }]);
 })();
@@ -2249,23 +2261,61 @@ webpackContext.id = 16;
 
 ﻿(function () {
     angular.module('orpak').controller('cadastros.views.modalTarefa',
-        function ($scope, $rootScope, $mdSidenav, $mdDialog, $mdMedia, tarefaService, tarefaId) {
+        function ($scope, $rootScope, $mdSidenav, $mdDialog, $mdMedia, $filter, pessoaService, tarefaService, tarefaId) {
             var vm = this;
 
             vm.tarefa = [];
-            vm.nomePessoa = "";
-            vm.status = "";
-            vm.descricao = "";
+            vm.pessoas = [];
+            vm.tarefaInput = {};
+
+            vm.dataInicio = new Date();
+            vm.dataFim = new Date();
 
             vm.fecharModal = function () {
-                vm.nomePessoa = "";
-                vm.status = "";
-                vm.descricao = "";
+                vm.tarefa.horaInicio = "";
+                vm.tarefa.horaFim = "";
+                vm.tarefa.pessoaId = "";
+                vm.tarefa.status = "";
+                vm.tarefa.horasAlocadas = "";
+                vm.dataInicio = "";
+                vm.dataFim = "";
+
                 $mdDialog.cancel();
             };
 
+            vm.salvar = function () {
+                if (tarefaId != 0)
+                    vm.alterar();
+                else
+                    vm.incluir();
+            }
+
+            vm.incluir = function () {
+                
+                vm.preencherDados();
+
+                tarefaService.inserir(vm.tarefaInput).success(function (result) {
+                    var alert = $mdDialog.alert({ title: 'Sucesso', textContent: 'Tarefa incluída com sucesso', ok: 'Fechar' });
+
+                    $mdDialog.show(alert).finally(function () {
+                        alert = undefined;
+                    });
+
+                    $rootScope.$emit("CallParentMethod", {});
+                }).error(function (result) {
+                    var alert = $mdDialog.alert({ title: 'Erro', textContent: response.data.Message, ok: 'Fechar' });
+
+                    $mdDialog.show(alert).finally(function () {
+                        alert = undefined;
+                    });
+                })
+            }
+
             vm.alterar = function () {
-                tarefaService.alterarStatus(tarefaId, vm.status).success(function (result) {
+
+                vm.preencherDados();
+
+                tarefaService.alterar(tarefaId, vm.tarefaInput).success(function (result) {
                     var alert = $mdDialog.alert({ title: 'Sucesso', textContent: 'Status alterado com sucesso', ok: 'Fechar' });
 
                     $mdDialog.show(alert).finally(function () {
@@ -2282,14 +2332,29 @@ webpackContext.id = 16;
                 })
             }
 
+            vm.preencherDados = function () {
+
+                vm.tarefaInput.horaInicio = moment($filter('date')(vm.dataInicio, 'dd/MM/yyyy') + ' ' + vm.tarefa.horaInicio, 'DD/MM/YYYY HH:mm').toJSON();
+                vm.tarefaInput.horaFim = moment($filter('date')(vm.dataFim, 'dd/MM/yyyy') + ' ' + vm.tarefa.horaFim, 'DD/MM/YYYY HH:mm').toJSON();
+                vm.tarefaInput.pessoaId = vm.tarefa.pessoaId;
+                vm.tarefaInput.descricao = vm.tarefa.descricao;
+                vm.tarefaInput.status = vm.tarefa.status;
+                vm.tarefaInput.horasAlocadas = vm.tarefa.horasAlocadas;
+            }
+
             vm.carregarInformacao = function () {
 
                 if (tarefaId != 0) {
 
                     tarefaService.obter(tarefaId).success(function (result) {
-                        vm.nomePessoa = result.NomePessoa;
-                        vm.descricao = result.Descricao;
-                        vm.status = result.idStatus;
+                        vm.tarefa.pessoaId = result.PessoaId;
+                        vm.tarefa.descricao = result.Descricao;
+                        vm.tarefa.status = result.idStatus;
+                        vm.tarefa.horasAlocadas = result.HorasAlocadas;
+                        vm.tarefa.horaInicio = $filter('date')(result.HoraInicio, 'HH:mm')
+                        vm.tarefa.horaFim = $filter('date')(result.HoraFim, 'HH:mm')
+                        vm.dataInicio = new Date(result.HoraInicio)
+                        vm.dataFim = new Date(result.HoraFim)
                     }).error(function (result) {
                         var alert = $mdDialog.alert({ title: 'Erro', textContent: response.data.Message, ok: 'Fechar' });
 
@@ -2300,6 +2365,20 @@ webpackContext.id = 16;
                 }
             };
 
+            vm.carregarPessoa = function () {
+
+                pessoaService.obterTodos().success(function (result) {
+                    vm.pessoas = result;
+                }).error(function (result) {
+                    var alert = $mdDialog.alert({ title: 'Erro', textContent: response.data.Message, ok: 'Fechar' });
+
+                    $mdDialog.show(alert).finally(function () {
+                        alert = undefined;
+                    });
+                })
+            }
+
+            vm.carregarPessoa();
             vm.carregarInformacao();
         }
     );

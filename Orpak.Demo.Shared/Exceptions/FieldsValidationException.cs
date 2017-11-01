@@ -13,8 +13,10 @@ namespace Orpak.Demo.Shared.Exceptions
 
         public FieldsValidationException(string message) : base(message)
         {
-            FieldsValidation = new List<FieldValidationInfo>();
-            FieldsValidation.Add(new FieldValidationInfo("", message, false));
+            FieldsValidation = new List<FieldValidationInfo>
+            {
+                new FieldValidationInfo("", message, false)
+            };
         }
 
         public FieldsValidationException(string message, IList<FieldValidationInfo> fieldsValidation) : base(message)

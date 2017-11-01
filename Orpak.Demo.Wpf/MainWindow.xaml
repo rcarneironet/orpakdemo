@@ -30,8 +30,8 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <Button Content="Next" Click="OnNextClicked" Margin="885,10,0,0" Grid.Row="1" HorizontalAlignment="Left" Width="80" Height="26" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-        <Button Content="Previous" Click="OnPreviousClicked" Margin="51,10,0,0" Grid.Row="1" HorizontalAlignment="Left" Width="81" Height="26" VerticalAlignment="Top" Grid.Column="1"/>
+        <Button Content="Próximo" Click="OnNextClicked" Margin="885,10,0,0" Grid.Row="1" HorizontalAlignment="Left" Width="80" Height="26" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <Button Content="Anterior" Click="OnPreviousClicked" Margin="51,10,0,0" Grid.Row="1" HorizontalAlignment="Left" Width="81" Height="26" VerticalAlignment="Top" Grid.Column="1"/>
         <Label Grid.Row="1" Margin="2">
             <Label.Content>
                 <Binding Path="CurrentPage">

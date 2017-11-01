@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Data;
 
 namespace Orpak.Demo.Wpf.Comum
@@ -19,25 +14,25 @@ namespace Orpak.Demo.Wpf.Comum
         public PagingCollectionView(IList innerList, int itemsPerPage)
             : base(innerList)
         {
-            this._innerList = innerList;
-            this._itemsPerPage = itemsPerPage;
+            _innerList = innerList;
+            _itemsPerPage = itemsPerPage;
         }
 
         public override int Count
         {
             get
             {
-                if (this._innerList.Count == 0) return 0;
-                if (this._currentPage < this.PageCount) 
+                if (_innerList.Count == 0) return 0;
+                if (_currentPage < PageCount) 
                 {
-                    return this._itemsPerPage;
+                    return _itemsPerPage;
                 }
                 else // 
                 {
-                    var itemsLeft = this._innerList.Count % this._itemsPerPage;
+                    var itemsLeft = _innerList.Count % _itemsPerPage;
                     if (0 == itemsLeft)
                     {
-                        return this._itemsPerPage; 
+                        return _itemsPerPage; 
                     }
                     else
                     {
@@ -49,61 +44,55 @@ namespace Orpak.Demo.Wpf.Comum
 
         public int CurrentPage
         {
-            get { return this._currentPage; }
+            get => _currentPage;
             set
             {
-                this._currentPage = value;
-                this.OnPropertyChanged(new PropertyChangedEventArgs("CurrentPage"));
+                _currentPage = value;
+                OnPropertyChanged(new PropertyChangedEventArgs("CurrentPage"));
             }
         }
 
-        public int ItemsPerPage { get { return this._itemsPerPage; } }
+        public int ItemsPerPage => _itemsPerPage;
 
-        public int PageCount
-        {
-            get
-            {
-                return (this._innerList.Count + this._itemsPerPage - 1)
-                    / this._itemsPerPage;
-            }
-        }
+        public int PageCount => (_innerList.Count + _itemsPerPage - 1)
+                                / _itemsPerPage;
 
         private int EndIndex
         {
             get
             {
-                var end = this._currentPage * this._itemsPerPage - 1;
-                return (end > this._innerList.Count) ? this._innerList.Count : end;
+                var end = _currentPage * _itemsPerPage - 1;
+                return (end > _innerList.Count) ? _innerList.Count : end;
             }
         }
 
         private int StartIndex
         {
-            get { return (this._currentPage - 1) * this._itemsPerPage; }
+            get { return (_currentPage - 1) * _itemsPerPage; }
         }
 
         public override object GetItemAt(int index)
         {
-            var offset = index % (this._itemsPerPage);
-            return this._innerList[this.StartIndex + offset];
+            var offset = index % (_itemsPerPage);
+            return _innerList[StartIndex + offset];
         }
 
         public void MoveToNextPage()
         {
-            if (this._currentPage < this.PageCount)
+            if (_currentPage < PageCount)
             {
-                this.CurrentPage += 1;
+                CurrentPage += 1;
             }
-            this.Refresh();
+            Refresh();
         }
 
         public void MoveToPreviousPage()
         {
-            if (this._currentPage > 1)
+            if (_currentPage > 1)
             {
-                this.CurrentPage -= 1;
+                CurrentPage -= 1;
             }
-            this.Refresh();
+            Refresh();
         }
     }
 }

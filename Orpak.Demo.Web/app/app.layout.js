@@ -7,6 +7,12 @@
         });
     }]);
 
+    appModule.config(function($mdDateLocaleProvider) {
+        $mdDateLocaleProvider.formatDate = function(date) {
+            return moment(date).format('DD/MM/YYYY');
+        };
+    });
+
     appModule.controller('comum.views.inicio', ['$scope', '$rootScope', '$state', '$mdMedia', '$mdDialog', '$location', '$mdSidenav',
             function ($scope, $rootScope, $state, $mdMedia, $mdDialog, $location, $mdSidenav) {
                 var vm = this;
@@ -49,12 +55,12 @@
                     else if ($location.path() == "/tarefas") {
                         $mdDialog.show({
                             templateUrl: 'cadastro.html',
-                            controller: 'cadastros.views.modalAmbiente as vm',
+                            controller: 'cadastros.views.modalTarefa as vm',
                             parent: angular.element(document.body),
                             targetEvent: ev,
                             fullscreen: useFullScreen,
                             locals: {
-                                ambienteId: 0
+                                tarefaId: 0
                             }
                         }).then(function () {
                             $rootScope.$emit("CallParentMethod", {});

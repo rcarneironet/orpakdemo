@@ -9,7 +9,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{0CD3468D-BB76-4E1C-A599-EAE357D515EC}</ProjectGuid>
+    <ProjectGuid>{3879A8F8-0F67-4658-9307-D8DBB5B24494}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -76,6 +76,7 @@
     <Content Include="js\app.bundle.js.map" />
     <Content Include="js\vendor.bundle.js.map" />
     <Content Include="app\app.constants.js" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

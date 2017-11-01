@@ -10,7 +10,7 @@ using System.Web.Http;
 
 namespace Orpak.Demo.Api.Controllers
 {
-    [RoutePrefix("api/Pessoa")]
+    [RoutePrefix("api")]
     public class PessoaController : ApiController
     {
         private IPessoaAppService _appService { get; }
@@ -20,6 +20,7 @@ namespace Orpak.Demo.Api.Controllers
             _appService = appService;
         }
 
+        [Route("Pessoa")]
         [HttpPost]
         public async Task<IHttpActionResult> Post([FromBody] PessoaInput pessoa)
         {
@@ -27,7 +28,7 @@ namespace Orpak.Demo.Api.Controllers
             return Created($"{Request?.RequestUri}/{obj.Id}", obj);
         }
 
-        [Route("{id}")]
+        [Route("Pessoa/{id}")]
         [HttpPut]
         public async Task<IHttpActionResult> Put(int id, [FromBody] PessoaInput pessoa)
         {
@@ -35,19 +36,21 @@ namespace Orpak.Demo.Api.Controllers
             return Content(HttpStatusCode.Accepted, obj);
         }
 
-        [Route("{id}")]
+        [Route("Pessoa/{id}")]
         [HttpGet]
         public async Task<IHttpActionResult> Get(int id)
         {
             return Ok(await _appService.Obter(id));
         }
 
+        [Route("Pessoa")]
         [HttpGet]
-        public async Task<IHttpActionResult> Get(int paginaAtual, int totalPagina)
+        public async Task<IHttpActionResult> Obter([FromUri] int paginaAtual, int totalPagina)
         {
             return Ok(await _appService.ListarTodos(paginaAtual, totalPagina));
         }
 
+        [Route("Pessoa/All")]
         [HttpGet]
         public IHttpActionResult Get()
         {
